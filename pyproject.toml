@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yumeow-timer"
+version = "0.1.0"
+description = "Lightweight timing utilities for performance diagnostics"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "YuMeow", email = "yumeow@example.com"}
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+keywords = ["timer", "timing", "performance", "profiling", "benchmark"]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.20.0",
+    "pandas>=1.3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yuzhTHU/nd2py"
+Repository = "https://github.com/yuzhTHU/nd2py"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
