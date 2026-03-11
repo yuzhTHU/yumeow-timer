@@ -204,6 +204,22 @@ class NamedTimer(Timer):
     @property
     def named_speed(self): return {k: self.get_named_speed(k) for k in self.names}
 
+    def to_dict(self):
+        return {
+            '_count': self._count,
+            '_time': self._time,
+            'unit': self.unit,
+            'last_add_time': self.last_add_time,
+        }
+
+    @classmethod
+    def from_dict(cls, dict):
+        timer = cls(unit=dict['unit'])
+        timer._count = dict['_count']
+        timer._time = dict['_time']
+        timer.last_add_time = dict.get('last_add_time', time.time())
+        return timer
+
 
 class ParallelTimer(Timer):
     def __init__(self, unit="iter"):
@@ -279,3 +295,19 @@ class ParallelTimer(Timer):
     def named_pace(self): return {k: self.get_named_pace(k) for k in self.names}
     @property
     def named_speed(self): return {k: self.get_named_speed(k) for k in self.names}
+
+    def to_dict(self):
+        return {
+            '_count': self._count,
+            '_time': self._time,
+            'unit': self.unit,
+            'last_add_time': self.last_add_time,
+        }
+
+    @classmethod
+    def from_dict(cls, dict):
+        timer = cls(unit=dict['unit'])
+        timer._count = dict['_count']
+        timer._time = dict['_time']
+        timer.last_add_time = dict.get('last_add_time', time.time())
+        return timer
